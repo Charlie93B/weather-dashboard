@@ -1,10 +1,15 @@
 import { requestApiData } from "./apirequest.js";
 import { getForecast } from "./getforecast.js";
 import { displayData } from "./displaydata.js";
+import { displayButtons } from "./displaybuttons.js";
 
 // auto-invoking function
 
 (function() {
+
+    $("#history").empty();
+
+    displayButtons();
 
     // submit event listener
 
@@ -40,6 +45,19 @@ import { displayData } from "./displaydata.js";
             for(let i = 0; i < searchValuesArray.length; i++) {
 
                 let countryButton = $('<button>');
+
+                countryButton.attr("data-country", searchValuesArray[i]);
+
+                countryButton.on("click", () => {
+
+                    let countryDataName = countryButton.attr("data-country");
+
+                    $("#today").empty();
+                    $("#forecast").empty();
+
+                    displayData(countryDataName);
+
+                })
 
                 countryButton.text(searchValuesArray[i]);
 

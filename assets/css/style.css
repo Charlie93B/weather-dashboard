@@ -1,7 +1,14 @@
 /* Forecast display CSS */
 
 #today {
+    border: 2px solid black;
+}
 
+#forecast div {
+    border: 2px solid black;
+    color: white;
+    background-color: rgb(45, 19, 189);
+    margin: 10px;
 }
 
 #forecast div,
