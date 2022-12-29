@@ -15,28 +15,40 @@ import { getForecast } from "./getforecast.js";
 
     // generate todays weather data display
 
-    const todaysWeatherDisplay = document.getElementById("today");
+    const todaysWeatherDisplay = $("#today");
     const todaysForecastDisplay = $("#forecast");
 
-    todaysWeatherDisplay.innerText = `${forecast.todaysWeather.name} ${forecast.todaysWeather.date}`;
+    // todaysWeatherDisplay.innerText = `${forecast.todaysWeather.name} ${forecast.todaysWeather.date}`;
+
+    // create forecast display for next five days weather forecast
 
     for(let i = 0; i < forecast.nextFiveDaysWeather.length; i++) {
 
         let divEl = $('<div>');
-        let dateEl = document.createElement("p");
-        let tempEl = document.createElement("p");
-        let windEl = document.createElement("p");
-        let humidEl = document.createElement("p");
 
-        dateEl.innerText = forecast.nextFiveDaysWeather[i].date;
-        tempEl.innerText = `Temperature: ${forecast.nextFiveDaysWeather[i].temp} C`;
-        windEl.innerText = `Wind: ${forecast.nextFiveDaysWeather[i].wind} mph`;
-        humidEl.innerText = `Humidity: ${forecast.nextFiveDaysWeather[i].humidity}%`;
+        for(const property in forecast.nextFiveDaysWeather[i]) {
 
-        divEl.append(dateEl, tempEl, windEl, humidEl);
+            let pEl = $('<p>');
+
+            pEl.text(forecast.nextFiveDaysWeather[i][property]);
+
+            divEl.append(pEl);
+        }
 
         todaysForecastDisplay.append(divEl);
 
+
+    };
+
+    // display todays weather forecast
+
+    for(const property in forecast.todaysWeather) {
+        
+        let dataDisplayEl = $('<p>');
+
+        dataDisplayEl.text(forecast.todaysWeather[property]);
+
+        todaysWeatherDisplay.append(dataDisplayEl);
 
     };
 

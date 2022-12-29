@@ -8,13 +8,15 @@ export const getForecast = (weatherData) => {
 
         date: weatherData.list[0].dt_txt,
 
-        temp: weatherData.list[0].main.temp,
+        temp: `Temp: ${weatherData.list[0].main.temp} C`,
 
-        wind: weatherData.list[0].wind.speed,
+        wind: `Wind: ${weatherData.list[0].wind.speed} mph`,
 
-        humidity: weatherData.list[0].main.humidity
+        humidity: `Humidity: ${weatherData.list[0].main.humidity}%`
         
     };
+
+    console.log(todaysWeather);
 
     let weatherForecast = {
 
@@ -40,10 +42,15 @@ export const getForecast = (weatherData) => {
 
         }
 
+        // need to find last forecast intervel which is n-3
+
+        let time = moment(todaysWeather.date).format("HH") - 3; 
+        
         // increase date by one day
 
-        const tomorrow  = moment().add(i, 'days').format("YYYY-MM-DD 15:00:00");
+        const tomorrow  = moment().add(i, 'days').format(`YYYY-MM-DD ${time}:00:00`);
 
+        
         console.log(tomorrow);
 
         // find data set matching the next days weather
@@ -56,11 +63,11 @@ export const getForecast = (weatherData) => {
 
             date: weatherDay.dt_txt,
 
-            temp: weatherDay.main.temp,
+            temp: `Temp: ${weatherDay.main.temp} C`,
 
-            wind: weatherDay.wind.speed,
+            wind: `Wind: ${weatherDay.wind.speed} mph`,
 
-            humidity: weatherDay.main.humidity
+            humidity: `Humidity: ${weatherDay.main.humidity}%`
 
         };
 

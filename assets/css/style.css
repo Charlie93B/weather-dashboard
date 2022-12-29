@@ -1,0 +1,10 @@
+/* Forecast display CSS */
+
+#today {
+
+}
+
+#forecast div,
+#forecast div p {
+    padding: 10px;
+}
