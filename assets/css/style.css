@@ -4,6 +4,16 @@
     border: 2px solid black;
 }
 
+#today :first-child,
+.date {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#today p {
+    margin: 10px;
+}
+
 #forecast div {
     border: 2px solid black;
     color: white;
@@ -14,4 +24,17 @@
 #forecast div,
 #forecast div p {
     padding: 10px;
+}
+
+#search-button {
+    background-color: rgb(51, 80, 143);
+    color: white;
+}
+
+h3 {
+    display: none;
+}
+
+.show {
+    display: block;
 }

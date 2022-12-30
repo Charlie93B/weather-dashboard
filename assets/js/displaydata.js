@@ -26,7 +26,21 @@ export const displayData = async (countryName) => {
 
             let pEl = $('<p>');
 
-            pEl.text(forecast.nextFiveDaysWeather[i][property]);
+            if(property == "date") {
+
+                let trimmedNextDate = moment(forecast.nextFiveDaysWeather[i].date).format("YYYY-MM-DD");
+
+                pEl.text(trimmedNextDate);
+
+                pEl.addClass("date");
+
+            }
+
+            else {
+                
+                pEl.text(forecast.nextFiveDaysWeather[i][property]);
+
+            };
 
             divEl.append(pEl);
         }
@@ -42,7 +56,20 @@ export const displayData = async (countryName) => {
         
         let dataDisplayEl = $('<p>');
 
-        dataDisplayEl.text(forecast.todaysWeather[property]);
+        if(property == "date") {
+
+            let trimmedDate = moment(forecast.todaysWeather.date).format("YYYY-MM-DD");
+
+            dataDisplayEl.text(trimmedDate);
+
+        }
+        
+        else {
+            
+            dataDisplayEl.text(forecast.todaysWeather[property]);
+
+        };
+
 
         todaysWeatherDisplay.append(dataDisplayEl);
 

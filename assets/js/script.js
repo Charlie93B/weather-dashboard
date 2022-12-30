@@ -1,5 +1,3 @@
-import { requestApiData } from "./apirequest.js";
-import { getForecast } from "./getforecast.js";
 import { displayData } from "./displaydata.js";
 import { displayButtons } from "./displaybuttons.js";
 
@@ -77,10 +75,5 @@ import { displayButtons } from "./displaybuttons.js";
         displayData(countryName);
 
     });
-
-
-
-
-
 
 })();
