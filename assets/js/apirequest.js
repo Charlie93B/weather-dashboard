@@ -13,7 +13,7 @@ const getGeocode = async (city) => {
 
     };
 
-    await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`, options)
+    await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`, options)
     .then(response => response.json())
     .then((response) => {
 
