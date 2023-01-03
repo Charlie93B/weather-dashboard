@@ -7,7 +7,12 @@ import { displayButtons } from "./displaybuttons.js";
 
     $("#history").empty();
 
-    displayButtons();
+    if(localStorage.getItem('search')) {
+
+        displayButtons();
+
+    }
+
 
     // submit event listener
 
@@ -73,6 +78,8 @@ import { displayButtons } from "./displaybuttons.js";
         }
 
         displayData(countryName);
+
+        displayButtons();
 
     });
 

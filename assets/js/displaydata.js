@@ -7,8 +7,6 @@ export const displayData = async (countryName) => {
 
     let weatherData = await requestApiData(countryName);
 
-    console.log(weatherData);
-
     let forecast = getForecast(weatherData);
 
     // generate todays weather data display

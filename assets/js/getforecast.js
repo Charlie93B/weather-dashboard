@@ -16,8 +16,6 @@ export const getForecast = (weatherData) => {
         
     };
 
-    console.log(todaysWeather);
-
     let weatherForecast = {
 
         todaysWeather: todaysWeather,
@@ -50,9 +48,6 @@ export const getForecast = (weatherData) => {
 
         const tomorrow  = moment().add(i, 'days').format(`YYYY-MM-DD ${time}:00:00`);
 
-        
-        console.log(tomorrow);
-
         // find data set matching the next days weather
 
         let weatherDay = weatherData.list.find(item => item.dt_txt == tomorrow);
@@ -75,11 +70,7 @@ export const getForecast = (weatherData) => {
 
         weatherForecast.nextFiveDaysWeather.push(weatherDayData);
 
-        console.log(weatherDay);
-
     };
-
-    console.log(weatherForecast);
 
     return weatherForecast;
 

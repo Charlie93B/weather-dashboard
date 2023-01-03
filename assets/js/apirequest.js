@@ -20,12 +20,8 @@ const getGeocode = async (city) => {
         coordinates.lat = response[0].lat;
 
         coordinates.lon = response[0].lon;
-        console.log(response);
 
     });
-
-    console.log(coordinates);
-    console.log(city);
 
     return coordinates;
 
@@ -41,8 +37,6 @@ export const requestApiData = async (city) => {
 
     let weatherData = fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`, options)
     .then(response => response.json());
-
-    console.log(weatherData);
 
     return weatherData;
 
